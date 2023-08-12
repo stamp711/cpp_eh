@@ -1,6 +1,9 @@
+#include <stdio.h>
+
 #include "throw.h"
 
 int main() {
-    test_exception();
-    return 0;
+  test_exception();
+  printf("after test_exception()\n");
+  return 0;
 }

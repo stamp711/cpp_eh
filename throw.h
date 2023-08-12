@@ -1,5 +1,3 @@
-struct Exception {};
-
 #ifdef __cplusplus
 extern "C" {
 #endif

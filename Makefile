@@ -1,13 +1,14 @@
 CC = gcc
 CXX = g++
-CXXFLAGS = -std=c++20 -Wall -Wextra
+CFLAGS = -O0 -g -Wall -Wextra
+CXXFLAGS = -std=c++20 -O0 -g -Wall -Wextra
 
 all: app
 
 main.o: main.c
-	${CC} main.c -c -o main.o
+	${CC} ${CFLAGS} main.c -c -o main.o
 
-throw.o: throw.cpp
+throw.o: throw.cpp throw.h
 	${CXX} ${CXXFLAGS} throw.cpp -c -o throw.o
 
 eh_abi.o: eh_abi.cpp
