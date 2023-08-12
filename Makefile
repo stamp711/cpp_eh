@@ -1,6 +1,6 @@
 CC = gcc
 CXX = g++
-
+CXXFLAGS = -std=c++20 -Wall -Wextra
 
 all: app
 
@@ -8,14 +8,17 @@ main.o: main.c
 	${CC} main.c -c -o main.o
 
 throw.o: throw.cpp
-	${CXX} throw.cpp -c -o throw.o
+	${CXX} ${CXXFLAGS} throw.cpp -c -o throw.o
 
-app: main.o throw.o
-	${CC} main.o throw.o -O0 -o app
+eh_abi.o: eh_abi.cpp
+	${CXX} ${CXXFLAGS} eh_abi.cpp -c -o eh_abi.o
+
+app: main.o throw.o eh_abi.o
+	${CC} main.o throw.o eh_abi.o -O0 -o app
 
 .PHONY: clean run
 clean:
-	rm -f main.o throw.o mycppabi.o app
+	rm -f main.o throw.o eh_abi.o app
 
 run: app
 	./app

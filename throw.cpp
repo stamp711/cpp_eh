@@ -6,7 +6,7 @@ struct AnotherException {};
 
 void raise() { throw Exception(); }
 
-void dont_catch() {
+void raise_but_cant_catch() {
   try {
     raise();
   } catch (AnotherException const&) {
